@@ -66,7 +66,26 @@ async function getPost(id) {
 
     postContainer.appendChild(title);
     postContainer.appendChild(body);
+    
+    dataComments.map((comment) => {
+        createComment(comment)
+    });
 
+}
+
+// recebe o comentário da API e formata
+function createComment(comment) {
+    const name = document.createElement("h3");
+    const email = document.createElement("h4");
+    const body = document.createElement("p");
+
+    name.innerText = comment.name;
+    email.innerText = comment.email;
+    body.innerText = comment.body;
+
+    commentsContainer.appendChild(name);
+    commentsContainer.appendChild(email);
+    commentsContainer.appendChild(body);
 }
 
 if (!postId) {
